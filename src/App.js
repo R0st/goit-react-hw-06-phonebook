@@ -1,26 +1,36 @@
-import React, { useState,useEffect } from 'react';
+// import React, { useState,useEffect } from 'react';
 // import { v4 as uuidv4 } from 'uuid';
 import ContactForm from './component/ContactForm/ContactForm';
 import ContactList from './component/ContactList';
 import Filter from './component/Filter/Filter';
-
-const initialContacts = [
-  { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-  { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-  { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-  { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-];
+import './App.css'
+// const initialContacts = [
+//   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+//   { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+//   { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+//   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+// ];
 
 export default function App() {
-  const [contacts, ] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('contacts')) ?? initialContacts
-  });
+  return (
+        <div className="divApp">
+        <h1>Phonebook</h1>
+          <ContactForm  />
+          <h2>Contacts</h2>
+          <ContactList />
+          <Filter />
+      </div>
+    )
+}
+  // const [contacts, ] = useState(() => {
+  //   return JSON.parse(window.localStorage.getItem('contacts')) ?? initialContacts
+  // });
 
-  // const [filter, setFilter] = useState('');
+  // // const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
   // const changeFilter = e => {
   //   setFilter(e.currentTarget.value);
@@ -52,16 +62,7 @@ export default function App() {
   //   setContacts(prevContacts=> prevContacts.filter(contact=>contact.id !==contactId))
   // }
   
-  return (
-        <>
-        <h1>Phonebook</h1>
-          <ContactForm  />
-          <h2>Contacts</h2>
-          <ContactList />
-          <Filter />
-      </>
-    )
-}
+  
 // class App extends Component {
 //   state = {
 //   contacts: [

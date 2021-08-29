@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 // import { myAction } from './redux/actions';
 import 'modern-normalize/modern-normalize.css';
+import { PersistGate } from 'redux-persist/integration/react';
 
 // console.log(store);
 // console.log(store.getState());
@@ -13,11 +14,13 @@ import 'modern-normalize/modern-normalize.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <Provider store={store.store}>
+      <PersistGate loading={'Loading...'} persistor={store.persistor}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
